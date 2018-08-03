@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS + CSS Clock</title>
+</head>
+
+<body>
+
+
+    <div class="clock">
+        <div class="clock-face">
+            <div id="timeHour" class="box"></div>
+            <div id="timeMins" class="box"></div>
+            <div id="timeSeconds" class="box"></div>
+        </div>
+    </div>
+
+
+    <style>
+        @font-face {
+            font-family: 'digital-clock-font';
+            src: url('http://www.fontspace.com/category/digital%20clock?text=');
+        }
+
+        html {
+            background: rgba(115, 237, 1, 0.692) url(http://unsplash.it/1500/1000?image=881&blur=50);
+            background-size: cover;
+            font-family: 'sans-serif';
+            text-align: center;
+            font-size: 10px;
+        }
+
+        body {
+            margin: 0;
+            font-size: 8rem;
+            display: flex;
+            flex: 1;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        .clock {
+            width: 28rem;
+            height: 10rem;
+            border: 20px solid white;
+            border-radius: 5%;
+            margin: 50px auto;
+            position: relative;
+            padding: 2rem;
+            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1),
+            inset 0 0 10px black,
+            0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .clock-face {
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            border: 2px solid black;
+            margin: .5rem;
+        }
+    </style>
+
+    <script>
+        const secondHand = document.querySelector('.second-hand');
+        const minsHand = document.querySelector('.min-hand');
+        const hourHand = document.querySelector('.hour-hand');
+
+        function setDate() {
+            const now = new Date();
+
+            const seconds = now.getSeconds();
+            document.getElementById('timeSeconds').innerHTML = seconds;
+
+            const mins = now.getMinutes();
+            document.getElementById('timeMins').innerHTML = mins;
+
+            const hour = now.getHours();
+            document.getElementById('timeHour').innerHTML = hour;
+        }
+
+        setInterval(setDate, 1000);
+
+        setDate();
+
+    </script>
+</body>
+
+</html>
