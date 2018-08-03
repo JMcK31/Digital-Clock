@@ -19,15 +19,14 @@
 
 
     <style>
-        @font-face {
-            font-family: 'digital-clock-font';
-            src: url('http://www.fontspace.com/category/digital%20clock?text=');
-        }
+        @import url('https://fonts.googleapis.com/css?family=Oxygen+Mono');
+
 
         html {
-            background: rgba(115, 237, 1, 0.692) url(http://unsplash.it/1500/1000?image=881&blur=50);
+            /* background: rgba(115, 237, 1, 0.692) url(http://unsplash.it/1500/1000?image=881&blur=50); */
+            background-image: url("https://media.giphy.com/media/UYBDCJjwOd9Re/giphy.gif");
             background-size: cover;
-            font-family: 'sans-serif';
+            font-family: 'Oxygen Mono', monospace;
             text-align: center;
             font-size: 10px;
         }
@@ -35,6 +34,7 @@
         body {
             margin: 0;
             font-size: 8rem;
+            color: magenta;
             display: flex;
             flex: 1;
             min-height: 100vh;
@@ -42,9 +42,9 @@
         }
 
         .clock {
-            width: 28rem;
+            width: 37rem;
             height: 10rem;
-            border: 20px solid white;
+            border: 20px solid #ffffff40;
             border-radius: 5%;
             margin: 50px auto;
             position: relative;
@@ -70,9 +70,6 @@
     </style>
 
     <script>
-        const secondHand = document.querySelector('.second-hand');
-        const minsHand = document.querySelector('.min-hand');
-        const hourHand = document.querySelector('.hour-hand');
 
         function setDate() {
             const now = new Date();
@@ -81,10 +78,10 @@
             document.getElementById('timeSeconds').innerHTML = seconds;
 
             const mins = now.getMinutes();
-            document.getElementById('timeMins').innerHTML = mins;
+            document.getElementById('timeMins').innerHTML = mins + ':';
 
             const hour = now.getHours();
-            document.getElementById('timeHour').innerHTML = hour;
+            document.getElementById('timeHour').innerHTML = hour + ':';
         }
 
         setInterval(setDate, 1000);
