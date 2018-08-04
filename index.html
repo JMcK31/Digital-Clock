@@ -48,7 +48,7 @@
             margin: 50px auto;
             position: relative;
             padding: 2rem;
-            box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1),
+            box-shadow: 0 0 0 4px rgba(65, 29, 29, 0.1),
             inset 0 0 10px black,
             0 0 10px rgba(0, 0, 0, 0.2);
         }
@@ -72,6 +72,7 @@
 
         function setDate() {
             const now = new Date();
+    
 
             const seconds = now.getSeconds();
             document.getElementById('timeSeconds').innerHTML = seconds;
@@ -80,12 +81,15 @@
             document.getElementById('timeMins').innerHTML = mins + ':';
 
             const hour = now.getHours();
-            document.getElementById('timeHour').innerHTML = hour + ':';
+            const hoursFixed = hour % 12 || 12;
+            document.getElementById('timeHour').innerHTML = hoursFixed + ':';
         }
 
         setInterval(setDate, 1000);
 
         setDate();
+
+const hoursFixed = hours % 12 || 12;
 
     </script>
 </body>
